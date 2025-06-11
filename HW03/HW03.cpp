@@ -5,11 +5,6 @@ using namespace std;
 template <typename T>
 class SimpleVector 
 {
-private:
-    T* data;               // 데이터를 저장할 배열을 가리키는 포인터
-    int Size;              // 현재 저장된 실제 요소의 개수
-    int Capacity;          // 할당된 메모리의 총 용량
-
 public:
     SimpleVector() : Size(0), Capacity(10) // 기본 생성자 초기화 값 설정
     {
@@ -33,6 +28,8 @@ public:
         {
             cout << "용량이 가득 찾습니다. 용량: " << Size << "/" << Capacity << endl;
         }
+      
+      
     }
 
     void pop_back()
@@ -53,6 +50,11 @@ public:
         return Capacity;
     }
 
+private:
+    T* data;               // 데이터를 저장할 배열을 가리키는 포인터
+    int Size;              // 현재 저장된 실제 요소의 개수
+    int Capacity;          // 할당된 메모리의 총 용량
+
 };
 
 int main() 
@@ -60,7 +62,7 @@ int main()
     SimpleVector<int> myVector;
     cout << "SimpleVector 생성 최대 용량: " << myVector.capacity()<< endl;
     int choice;
-   
+    
     while (true) //무한루프
     {
         cout << "1. 데이터 추가 (push_back)" << endl;
@@ -71,16 +73,16 @@ int main()
         cin >> choice;
         
         // 데이터 추가 (push_back)
-        if (choice == 1)   
+        if (choice == 1)
         {
             int num;
             cout << "몇 개의 숫자를 입력하시겠습니까? : ";
             cin >> num;
-        
+
             if (num > 0)
             {
                 cout << num << " 개의 숫자를 입력하세요." << endl; //for 문에 입력하니 계속 출력되서 밖으로 꺼냄
-                
+
                 for (int i = 0; i < num; i++)
                 {
                     int Num;
@@ -89,8 +91,8 @@ int main()
                     myVector.push_back(Num);
                 }
             }
-            
-            else
+
+            else 
             {
                 cout << "0을 입력하셔서 처음으로 되돌아갑니다." << endl;
             }
