@@ -17,7 +17,7 @@ public:
         data = nullptr;// 한 번더 메모리 해제 확인
     }
 
-    void push_back(const T& value)// 복사가 아닌 참조로 값을 바꿔준다.
+    void push_back(const T& value)// 복사가 아닌 원본 값
     {
         if (Size < Capacity)
         {
